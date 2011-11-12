@@ -1,0 +1,113 @@
+body {
+	background-color: black;
+	color: white;
+	font-family: Verdana;
+}
+
+#ticker1 {
+	font-size: 24pt;
+	text-transform: uppercase;
+	height: 1em;
+}
+
+#ticker2 {
+	font-size: 18pt; 
+	text-transform: uppercase;
+	height: 1em;
+}
+
+.ticker ul, li {
+	color: white;
+	display: inline;
+	text-decoration: none;
+	overflow: auto;
+	white-space: nowrap;
+}
+
+.ticker {
+	border-top: 5px;
+}
+
+.tweet_text a {
+	color: white;
+}
+
+#tickers {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	margin-top: 1em;
+}
+
+#highlights {
+	text-align: center;
+	vertical-align: center;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+.highlight  {
+	display: inline-block;
+	margin-left: 10px;
+	margin-right: 10px;
+	width: 30%;
+	height: 200px;
+	-moz-border-radius: 15px;
+	border-radius: 15px;
+	
+	background-image: linear-gradient(bottom, rgb(255,255,255) 12%, rgb(97,97,97) 56%);
+	background-image: -o-linear-gradient(bottom, rgb(46,46,46) 12%, rgb(97,97,97) 56%);
+	background-image: -moz-linear-gradient(bottom, rgb(46,46,46) 12%, rgb(97,97,97) 56%);
+	background-image: -webkit-linear-gradient(bottom, rgb(255,255,255) 12%, rgb(97,97,97) 56%);
+	background-image: -ms-linear-gradient(bottom, rgb(46,46,46) 12%, rgb(97,97,97) 56%);
+
+	background-image: -webkit-gradient(
+		linear,
+		left bottom,
+		left top,
+		color-stop(0.12, rgb(50,50,50)),
+		color-stop(0.56, rgb(30,30,30))
+	);
+}
+
+#comingup {
+	text-transform: uppercase;
+	padding-bottom: 0.5em;
+	text-align: center;
+	font-size: 18pt;
+	color: #666;
+}
+
+#comingup {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#comingup b {
+	color: white;
+	font-weight: normal;
+}
+
+#stats {
+	text-align: center;
+	width: 100%;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+
+#stats table {
+	width: 100%;
+}
+
+#stats td {
+	text-align: left;
+	text-transform: uppercase;
+	font-size: 18pt;
+	border: 5px solid black;
+	padding: 5px;
+	background-color: #222;
+}
+
+#stats {
+	margin-bottom: 1em;
+}
