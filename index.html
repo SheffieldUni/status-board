@@ -33,7 +33,7 @@
             query: "@cics",
             avatar_size: 32,
             count: 10,
-			template: "{avatar} {text}   ",
+      template: "{avatar} {text}   ",
             loading_text: "loading tweets..."
         });
     });
@@ -42,133 +42,124 @@
             query: "#cicsstatus",
             avatar_size: 32,
             count: 10,
-			template: "{avatar} {text}   ",
+      template: "{avatar} {text}   ",
             loading_text: "loading tweets..."
         });
     });
 </script>
 <script type="text/javascript">
   $(document).everyTime((300*1000), function() {
-	document.getElementById('googleCalendar').src = document.getElementById('googleCalendar').src
+  document.getElementById('googleCalendar').src = document.getElementById('googleCalendar').src
 })
 </script>
 </head>
 
 <body>
 
-  <div id="container">
-    <header>
-
-    </header>
-    <div id="main" role="main">
-      <div id="charts" class="charts">
-	    <div id="chartA" class="chart">
-		  <div class='columnContainer' id='columnContainer_1'>
-		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
-		    <div class='column' id='column_1' style="height: 120px"></div>
-		    <div class='columnTitle'>Horse</div>
-		  </div>
-		  <div class='columnContainer' id='columnContainer_2'>
-		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
-		    <div class='column' id='column_2' style="height: 50px"></div>
-		    <div class='columnTitle'>Bucket</div>
-		  </div>
-		  <div class='columnContainer' id='columnContainer_3'>
-		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
-		    <div class='column' id='column_3' style="height: 20px"></div>
-		    <div class='columnTitle'>Cow</div>
-		  </div>
-		  <div class='columnContainer' id='columnContainer_4'>
-		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
-		    <div class='column' id='column_4' style="height: 90px"></div>
-		    <div class='columnTitle'>Rocket</div>
-		  </div>
-		  <div class='columnContainer' id='columnContainer_5'>
-		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
-		    <div class='column' id='column_5' style="height: 110px"></div>
-		    <div class='columnTitle'>Banana</div>
-		  </div>
-		</div>
-	  </div>
-	  <div id="stats">
-	    <table>
-		  <tr id="stat1">
-		    <td>1</td>
-		    <td>Stat 1:1</td>
-		    <td>Stat 1:2</td>
-		    <td>Stat 1:3</td>
-		    <td>Stat 1:4</td>
-		  </tr>
-		  <tr id="stat2">
-		    <td>2</td>
-		    <td>Stat 2:1</td>
-		    <td>Stat 2:2</td>
-		    <td>Stat 2:3</td>
-		    <td>Stat 2:4</td>
-		  </tr>
-		  <tr id="stat3">
-		    <td>3</td>
-		    <td>Stat 3:1</td>
-		    <td>Stat 3:2</td>
-		    <td>Stat 3:3</td>
-		    <td>Stat 3:4</td>
-		  </tr>
-		  <tr id="stat4">
-		    <td>4</td>
-		    <td>Stat 4:1</td>
-		    <td>Stat 4:2</td>
-		    <td>Stat 4:3</td>
-		    <td>Stat 4:4</td>
-		  </tr>
-		  <tr id="stat5">
-		    <td>5</td>
-		    <td>Stat 5:1</td>
-		    <td>Stat 5:2</td>
-		    <td>Stat 5:3</td>
-		    <td>Stat 5:4</td>
-		  </tr>
-		  <tr id="stat6">
-		    <td>6</td>
-		    <td>Stat 6:1</td>
-		    <td>Stat 6:2</td>
-		    <td>Stat 6:3</td>
-		    <td>Stat 6:4</td>
-		  </tr>
-		</table>
-	  </div>
-	  <div id="comingup">
-		<b>Something</b> is happening soon!
-	  </div>
-	  <div id="highlights">
-	    <div class="highlight" id="highlight1">
-		  Highlight 1
-		</div>
-		<div class="highlight" id="highlight2">
-		  Highlight 2
-		</div>
-		<div class="highlight" id="highlight3">
-		  <iframe id="googleCalendar" src="https://www.google.com/calendar/b/0/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=350&amp;wkst=2&amp;bgcolor=%23330033&amp;src=cics-changes%40sheffield.ac.uk&amp;color=%23BE6D00&amp;src=sheffield.ac.uk_8v8avojjrlk1lot2lkpl47fn0k%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FLondon" style=" border-width:0 " width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
-		</div>
-	  </div>
-	  <div id="tickers">
-		<marquee behavior="scroll" scrollamount="4" direction="left"id="ticker1" class="ticker">
-	      <div class="cicsstatus"></div>
-		</marquee>
-        <marquee behavior="scroll" scrollamount="7" direction="left" id="ticker2" class="ticker">
-	      <div class="tweet"></div>
-		</marquee>		
-	  </div>
+  <div id="main" role="main">
+    <div id="charts" class="charts">
+      <div id="chartA" class="chart">
+        <div class='columnContainer' id='columnContainer_1'>
+        <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+        <div class='column' id='column_1' style="height: 120px"></div>
+        <div class='columnTitle'>Horse</div>
+      </div>
+      <div class='columnContainer' id='columnContainer_2'>
+        <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+        <div class='column' id='column_2' style="height: 50px"></div>
+        <div class='columnTitle'>Bucket</div>
+      </div>
+      <div class='columnContainer' id='columnContainer_3'>
+        <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+        <div class='column' id='column_3' style="height: 20px"></div>
+        <div class='columnTitle'>Cow</div>
+      </div>
+      <div class='columnContainer' id='columnContainer_4'>
+        <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+        <div class='column' id='column_4' style="height: 90px"></div>
+        <div class='columnTitle'>Rocket</div>
+      </div>
+      <div class='columnContainer' id='columnContainer_5'>
+        <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+        <div class='column' id='column_5' style="height: 110px"></div>
+        <div class='columnTitle'>Banana</div>
+      </div>
     </div>
-    <footer>
-
-    </footer>
-  </div> <!--! end of #container -->
-
-
-
-
-
-  <script language="text/javascript">
+  </div>
+  <div id="stats">
+    <table>
+        <tr id="stat1">
+      <td>1</td>
+      <td>Stat 1:1</td>
+      <td>Stat 1:2</td>
+      <td>Stat 1:3</td>
+      <td>Stat 1:4</td>
+    </tr>
+    <tr id="stat2">
+      <td>2</td>
+      <td>Stat 2:1</td>
+      <td>Stat 2:2</td>
+      <td>Stat 2:3</td>
+      <td>Stat 2:4</td>
+    </tr>
+    <tr id="stat3">
+      <td>3</td>
+      <td>Stat 3:1</td>
+      <td>Stat 3:2</td>
+      <td>Stat 3:3</td>
+      <td>Stat 3:4</td>
+    </tr>
+    <tr id="stat4">
+      <td>4</td>
+      <td>Stat 4:1</td>
+      <td>Stat 4:2</td>
+      <td>Stat 4:3</td>
+      <td>Stat 4:4</td>
+    </tr>
+    <tr id="stat5">
+      <td>5</td>
+      <td>Stat 5:1</td>
+      <td>Stat 5:2</td>
+        <td>Stat 5:3</td>
+      <td>Stat 5:4</td>
+    </tr>
+    <tr id="stat6">
+      <td>6</td>
+      <td>Stat 6:1</td>
+      <td>Stat 6:2</td>
+      <td>Stat 6:3</td>
+      <td>Stat 6:4</td>
+    </tr>
+    </table>
+  </div>
+  <div id="comingup">
+    <b>Something</b> is happening soon!
+  </div>
+  <div id="highlights">
+    <div class="highlight" id="highlight1">
+      Highlight 1
+    </div>
+    <div class="highlight" id="highlight2">
+      Highlight 2
+    </div>
+    <div class="highlight" id="highlight3">
+	  &nbsp;
+	  <!-- 
+      <iframe id="googleCalendar" src="https://www.google.com/calendar/b/0/embed?showTitle=0&amp;showNav=0&amp;showDate=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=350&amp;wkst=2&amp;bgcolor=%23330033&amp;src=cics-changes%40sheffield.ac.uk&amp;color=%23BE6D00&amp;src=sheffield.ac.uk_8v8avojjrlk1lot2lkpl47fn0k%40group.calendar.google.com&amp;color=%23711616&amp;ctz=Europe%2FLondon" style=" border-width:0 " width="100%" height="100%" frameborder="0" scrolling="no"></iframe>
+      -->
+    </div>
+  </div>
+  <div id="tickers">
+    <marquee behavior="scroll" scrollamount="4" direction="left"id="ticker1" class="ticker">
+      <div class="cicsstatus"></div>
+    </marquee>
+    <marquee behavior="scroll" scrollamount="7" direction="left" id="ticker2" class="ticker">
+      <div class="tweet"></div>
+    </marquee>    
+  </div>
+  </div>
+ 
+ <script language="text/javascript">
     $('marquee').marquee();
   </script> 
 
