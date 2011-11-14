@@ -5,7 +5,7 @@ body {
 }
 
 #ticker1 {
-	font-size: 24pt;
+	font-size: 18pt;
 	text-transform: uppercase;
 	height: 1em;
 }
@@ -205,4 +205,8 @@ body {
 	border-left-color: #ede80a;
 	border-top-color: #ede80a;	
     border-right-color: #beba06;	
+}
+
+#star img {
+	color: yellow;
 }
