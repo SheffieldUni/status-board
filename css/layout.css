@@ -127,7 +127,16 @@ body {
 
 .columnHeader {
 	font-family: ubuntu;
-	font-size: 18pt;	
+	font-size: 18pt;
+	color: #888;	
+}
+
+.header_A {
+	color: white;
+}
+
+.header_B {
+	color: #c6daff;
 }
 
 .columnTitle {
