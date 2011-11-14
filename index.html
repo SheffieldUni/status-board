@@ -37,6 +37,15 @@
             loading_text: "loading tweets..."
         });
     });
+    jQuery(function($){
+        $(".cicsstatus").tweet({
+            query: "#cicsstatus",
+            avatar_size: 32,
+            count: 10,
+			template: "{avatar} {text}   ",
+            loading_text: "loading tweets..."
+        });
+    });
 </script>
 <script type="text/javascript">
   $(document).everyTime((300*1000), function() {
@@ -198,20 +207,7 @@
 	  </div>
 	  <div id="tickers">
 		<marquee behavior="scroll" scrollamount="4" direction="left"id="ticker1" class="ticker">
-	      <ul>
-			<li>Important Information 1</li>
-			<li>Important Information 2</li>
-			<li>Important Information 3</li>
-			<li>Important Information 4</li>
-			<li>Important Information 5</li>
-			<li>Important Information 6</li>
-			<li>Important Information 7</li>
-			<li>Important Information 8</li>
-			<li>Important Information 9</li>
-			<li>Important Information 10 </li>
-			<li>Important Information 11</li>
-			<li>Important Information 12</li>
-		  </ul>
+	      <div class="cicsstatus"></div>
 		</marquee>
         <marquee behavior="scroll" scrollamount="7" direction="left" id="ticker2" class="ticker">
 	      <div class="tweet"></div>
