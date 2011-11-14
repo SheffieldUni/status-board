@@ -48,86 +48,31 @@
     <div id="main" role="main">
       <div id="charts" class="charts">
 	    <div id="chartA" class="chart">
-			<script type="text/javascript">
-				var chart;
-				$(document).ready(function() {
-					chart = new Highcharts.Chart({
-						chart: {
-							renderTo: 'chartA',
-							defaultSeriesType: 'column',
-							backgroundColor: 'black',
-							height: 200,
-						},
-						legend: {
-						    enabled: false,	
-						},
-						xAxis: {
-							categories: [
-								'Carrot', 
-								'Banana', 
-								'Horse', 
-								'Rocket'
-							],
-							labels: {
-							  style: { 
-								color: 'white',
-							    fontSize: '18pt',
-							    fontWeight: 'normal',
-							    fontFamily: 'ubuntu',
-							    textTransform: 'uppercase',
-							  },
-							  y: 32,
-							},
-							lineWidth: 0,
-							tickLength: 0,
-						},
-						yAxis: {
-							min: 0,
-							title: '',
-							gridLineColor: 'black',
-							labels: {
-								enabled: false,
-							}
-						},
-                        title: '',
-						plotOptions: {
-							column: {
-								pointPadding: 0,
-								borderWidth: 0,
-								dataLabels: {
-									enabled: true,
-									color: 'white',
-									style: {
-										fontSize: '18pt',
-										fontFamily: 'ubuntu',
-										fontWeight: 'normal',
-										textTransform: 'uppercase',
-									}
-								}
-							}
-						},
-					        series: [{
-							data: [{
-								color: 'red',
-								y: 49,
-							  },{
-								color: 'blue',
-								y: 71,
-							  },{
-								color: 'green',
-								y: 22,
-							  },{
-								color: 'yellow',
-								y: 104
-								}]
-
-						}]
-					});
-
-
-				});
-
-			</script>
+		  <div class='columnContainer' id='columnContainer_1'>
+		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+		    <div class='column' id='column_1' style="height: 120px"></div>
+		    <div class='columnTitle'>Horse</div>
+		  </div>
+		  <div class='columnContainer' id='columnContainer_2'>
+		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+		    <div class='column' id='column_2' style="height: 50px"></div>
+		    <div class='columnTitle'>Bucket</div>
+		  </div>
+		  <div class='columnContainer' id='columnContainer_3'>
+		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+		    <div class='column' id='column_3' style="height: 20px"></div>
+		    <div class='columnTitle'>Cow</div>
+		  </div>
+		  <div class='columnContainer' id='columnContainer_4'>
+		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+		    <div class='column' id='column_4' style="height: 90px"></div>
+		    <div class='columnTitle'>Rocket</div>
+		  </div>
+		  <div class='columnContainer' id='columnContainer_5'>
+		    <div class='columnHeader'><span class='header_A'>1</span>/<span class='header_B'>2</span></div>
+		    <div class='column' id='column_5' style="height: 110px"></div>
+		    <div class='columnTitle'>Banana</div>
+		  </div>
 		</div>
 	  </div>
 	  <div id="stats">

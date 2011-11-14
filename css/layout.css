@@ -111,3 +111,83 @@ body {
 #stats {
 	margin-bottom: 1em;
 }
+
+.chart {
+	text-align: center;
+	height: 200px;
+}
+
+.columnContainer {
+	text-align: center;
+	display: inline-block;
+	width: 19%;
+	vertical-align: bottom;
+}
+
+.columnTitle {
+	font-family: 'ubuntu';
+	font-size: 18pt;
+	text-transform: uppercase;
+}
+
+.column {
+  text-align: center;
+  border-width: 3px;
+  border-style: solid;
+  border-bottom: 0px;
+  width: 80%;
+  margin-left: 10%;
+
+  -moz-border-radius-topright: 3px;
+  -webkit-border-top-right-radius: 3px;
+  -moz-border-radius-topleft: 3px;
+  -webkit-border-top-left-radius: 3px;
+}
+
+#column_1 {
+	background: #FABD15;
+	border-color: #FABD15;
+    border-left-color: #fed615;
+	border-top-color: #fed615;
+	border-right-color: #d5a110;
+}
+
+#column_2 {
+	background: #49C817;
+	border-color: #49C817;
+    border-left-color: #4fdd15;
+	border-top-color: #4fdd15;
+	border-right-color: #38a410;	
+}
+
+#column_3 {
+	background: #FD3B15;
+	border-color: #FD3B15;
+    border-left-color: #ff4c21;
+	border-top-color: #ff4c21;
+	border-right-color: #cd2e14;		
+}
+
+#column_4 {
+	background: #7554BF;
+	border-color: #7554BF;
+	border-left-color: #835dd7;	
+	border-top-color: #835dd7;	
+	border-right-color: #6345a5; 
+}
+
+#column_5 {
+	background: #107CF8;
+	border-color: #107CF8;
+	border-left-color: #1288ff;
+	border-top-color: #1288ff;	
+    border-right-color: #3368d7;	
+}
+
+#column_6 {
+	background: #d8d309;
+	border-color: #d8d309;
+	border-left-color: #ede80a;
+	border-top-color: #ede80a;	
+    border-right-color: #beba06;	
+}
