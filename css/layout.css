@@ -271,13 +271,13 @@ table.calendar {
 }
 
 .statusCRITICAL {
-	color: #ff0;
+	color: red;
 }
 
 .statusWARNING {
 	color: yellow;
 }
 
-.statusERROR {
-	color: red;
+.statusUNKNOWN {
+	color: #ff0;
 }
