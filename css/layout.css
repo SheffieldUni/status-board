@@ -258,3 +258,19 @@ table.calendar {
 	border-top-color: #ede80a;	
     border-right-color: #beba06;	
 }
+
+.statusOK {
+	color: green;
+}
+
+.statusCRITICAL {
+	color: #ff0;
+}
+
+.statusWARNING {
+	color: yellow;
+}
+
+.statusERROR {
+	color: red;
+}
