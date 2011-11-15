@@ -114,6 +114,7 @@ table.calendar {
 }
 
 .date {
+	padding-left: 1em;
 	width: 3em;
 	color: #888;
 }
