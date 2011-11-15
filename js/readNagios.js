@@ -1,4 +1,4 @@
-function updateNagios() {
+setInterval(function {
   $.getJSON('/vshell/index.php?type=services&mode=json', function(data) { $.each(data, function () { 
     service = this["service_description"];
     state = this["current_state"]; 
@@ -6,4 +6,4 @@ function updateNagios() {
     $("#service"+service).addClass(state); 
     console.debug(service+state); 
   }) })
-}
+}, 5000)
