@@ -4,6 +4,5 @@ setInterval(function () {
     state = this["current_state"]; 
     $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING"); 
     $("#service"+service).addClass("status"+state); 
-    console.debug(service+state); 
   }) })
 }, 5000)
