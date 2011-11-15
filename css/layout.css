@@ -259,6 +259,13 @@ table.calendar {
     border-right-color: #beba06;	
 }
 
+#lastUpdated {
+	font-size: 12pt;
+	width: 100%;
+	text-align: right;
+	color: #444;
+}
+
 .statusOK {
 	color: green;
 }
