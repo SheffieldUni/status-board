@@ -11,7 +11,7 @@ function updateNagios() {
 }
 
 updateNagios();
-setInterval( updateNagios(), 5000 );
+setInterval( updateNagios, 5000 );
 
 function updateGoogleCalendar() {
 	$('#calendar table').empty();
