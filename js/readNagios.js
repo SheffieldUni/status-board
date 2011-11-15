@@ -10,9 +10,6 @@ function updateNagios() {
   });
 }
 
-updateNagios();
-setInterval( updateNagios, 5000 );
-
 function updateGoogleCalendar() {
 	$('#calendar table').empty();
 
@@ -27,5 +24,10 @@ function updateGoogleCalendar() {
   })
 }
 
-updateGoogleCalendar();
-setInterval( updateGoogleCalendar,900000);
+$(document).ready( function () {
+  updateNagios();
+  setInterval( updateNagios, 5000 );
+  updateGoogleCalendar();
+  setInterval( updateGoogleCalendar,900000);
+})
+
