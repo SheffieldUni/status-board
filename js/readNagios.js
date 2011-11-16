@@ -42,7 +42,7 @@ function updateSignificantEvent() {
     else if (days == 1) { remaining = "tomorrow"; }
     else { remaining = "in "+days+" days"; }
     outString = entry["title"]["$t"].replace(/(SIGNIFICANT: )([^-]+ - )(.+)/,"$3");
-    $('#comingup').append("<b>"+outString+"</b> "+remaining+"\n");
+    $('#comingup').append("Major work to <b>"+outString+"</b> "+remaining+"\n");
   })
 }
 
