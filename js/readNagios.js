@@ -95,8 +95,11 @@ function updateGraphs() {
     $('#column_1').height(Math.floor(scaleFactor*state["OK"]));
     $('#columnContainer_1 .header_A').html(state["OK"]);
     $('#column_2').height(Math.floor(scaleFactor*state["WARNING"]));
+    $('#columnContainer_2 .header_A').html(state["WARNING"]);
     $('#column_3').height(Math.floor(scaleFactor*state["CRITICAL"]));
+    $('#columnContainer_3 .header_A').html(state["CRITICAL"]);
     $('#column_4').height(Math.floor(scaleFactor*state["UNKNOWN"]));
+    $('#columnContainer_4 .header_A').html(state["UNKNOWN"]);
   });
 }
 
