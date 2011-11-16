@@ -94,7 +94,7 @@ function updateGraphs() {
 
     scaleFactor = maxColumnHeight / largestState;
     console.debug ('scale = ',scaleFactor);
-    console.debug ('col1 = ',Math.floor(scaleFactor*state["OK"])
+    console.debug ('col1 = ',Math.floor(scaleFactor*state["OK"]));
     $('#column_1').css('height',Math.floor(scaleFactor*state["OK"])+"px;");
     $('#column_2').css('height',Math.floor(scaleFactor*state["WARNING"])+"px;");
     $('#column_3').css('height',Math.floor(scaleFactor*state["CRITICAL"])+"px;");
