@@ -60,7 +60,7 @@ body {
 }
 
 .highlight {
-	font-size: 18pt;
+	font-size: 14pt;
 	display: inline-block;
 	margin-left: 10px;
 	margin-right: 10px;
@@ -111,6 +111,7 @@ table.calendar {
 	border-width: 3px;
 	border-bottom-style: solid;
 	border-color: black;
+	font-size: 12pt;
 }
 
 .date {
