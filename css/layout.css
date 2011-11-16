@@ -65,10 +65,10 @@ body {
 	margin-left: 10px;
 	margin-right: 10px;
 	width: 30%;
-	height: 200px;
+	height: 400px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
-	
+	overflow: hidden;
 }
 
 .highlightGradiant {
@@ -115,7 +115,7 @@ table.calendar {
 }
 
 .date {
-	padding-left: 1em;
+	padding-left: 0.5em;
 	width: 3em;
 	color: #888;
 }
