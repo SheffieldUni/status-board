@@ -15,11 +15,12 @@ function updateGoogleCalendar() {
 
 	var out = '';
 
-	$.getJSON('http://www.google.com/calendar/feeds/sheffield.ac.uk_5i8cmsq79qd3nm5spk9ftkol0k@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=15&singleevents=true&sortorder=ascending&futureevents=true', function (data) { 
+	$.getJSON('http://www.google.com/calendar/feeds/sheffield.ac.uk_5i8cmsq79qd3nm5spk9ftkol0k@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=10&singleevents=true&sortorder=ascending&futureevents=true', function (data) { 
 	  $.each(data["feed"]["entry"], function(value, data) { 
 	  calDate = new Date(data["gd$when"][0]["startTime"]);
 	  dateString = calDate.getDate() + "/" + (calDate.getMonth()+1);
-	  $('#calendar').append("<tr><td class='date'>"+dateString+"</td><td class='event'>"+data["title"]["$t"]+"</td></tr>\n");
+	  event = data["title"]["$t"].replace(/([^,]+),?.*/,'$1');
+	  $('#calendar').append("<tr><td class='date'>"+dateString+"</td><td class='event'>"+event+"</td></tr>\n");
 	})
   })
 }
@@ -40,7 +41,7 @@ function updateSignificantEvent() {
     if (days < 1) { remaining = "today"; }
     else if (days == 1) { remaining = "tomorrow"; }
     else { remaining = "in "+days+" days"; }
-    outString = entry["title"]["$t"].replace(/(SIGNIFICANT: )([^-]+ - )(.*)/,"$3");
+    outString = entry["title"]["$t"].replace(/(SIGNIFICANT: )([^-]+ - )(.+)/,"$3");
     $('#comingup').append("<b>"+outString+"</b> "+remaining+"\n");
   })
 }
