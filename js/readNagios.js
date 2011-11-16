@@ -78,7 +78,10 @@ function updateGraphs() {
     $.each(data, function () { 
       state[this["current_state"]]++;
       console.debug( this["current_state"]);
-      if (state[this["current_state"]] > largestState) { largestState = state[this["current_state"]]; }
+      if (state[this["current_state"]] > largestState) {
+	    largestState = state[this["current_state"]]; 
+	    console.debug(largestState)
+	  }
     });
 
     // find out the height of our containers so we don't break the view
