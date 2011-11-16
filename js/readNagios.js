@@ -67,7 +67,7 @@ function updateTwitter() {
   });
 }
 
-function updageGraphs() {
+function updateGraphs() {
   $.getJSON('/vshell/index.php?type=services&mode=json', function(data) { 
 	state["CRITICAL"]=0;
 	state["WARNING"]=0;
@@ -104,6 +104,7 @@ $(document).ready( function () {
   setInterval( updateSignificantEvent,900*1000);
   updateTwitter();
   setInterval( updateTwitter, 300*1000);
-  updateGraph();
+  updateGraphs();
+  setInterval( updateGraphs, 5*1000 );
 })
 
