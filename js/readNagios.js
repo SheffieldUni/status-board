@@ -85,12 +85,15 @@ function updateGraphs() {
     chartHeader = $('.columnHeader').height();
     chartTitle = $('.columnTitle').height();
     maxColumnHeight = chartDivHeight - (chartHeader+chartTitle);
-    
+    console.debug ('max = '+maxColumnHeight);    
+
     scaleFactor = Math.round(maxColumnHeight / largestState);
-    $('#column_1').css('height',scaleFactor*state["OK"]);
-    $('#column_2').css('height',scaleFactor*state["WARNING"]);
-    $('#column_3').css('height',scaleFactor*state["CRITICAL"]);
-    $('#column_4').css('height',scaleFactor*state["UNKNOWN"]);
+    console.debug ('scale = ',scaleFactor);
+    $('#column_1').css('height',scaleFactor*state["OK"]+"px;");
+    $('#column_2').css('height',scaleFactor*state["WARNING"]+"px;");
+    $('#column_3').css('height',scaleFactor*state["CRITICAL"]+"px;");
+    $('#column_4').css('height',scaleFactor*state["UNKNOWN"]+"px;");
+    console.debug ('graph updated');
   });
 }
 
