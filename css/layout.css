@@ -165,6 +165,7 @@ table.calendar {
 .chart {
 	text-align: center;
 	height: 200px;
+	vertical-align: bottom;
 }
 
 .columnContainer {
