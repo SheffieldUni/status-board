@@ -69,11 +69,12 @@ function updateTwitter() {
 
 function updateGraphs() {
   $.getJSON('/vshell/index.php?type=services&mode=json', function(data) { 
+    var state = [];
 	state["CRITICAL"]=0;
 	state["WARNING"]=0;
 	state["OK"]=0;
 	state["UNKNOWN"]=0;
-	largestState=0;
+	var largestState=0;
 	
     $.each(data, function () { 
       state[this["current_state"]]++;
