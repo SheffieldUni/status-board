@@ -78,7 +78,6 @@ function updateGraphs() {
 	
     $.each(data, function () { 
       state[this["current_state"]]++;
-      console.debug( this["current_state"]+" - "+state[this["current_state"]] );
       if (state[this["current_state"]] > largestState) {
 	    largestState = state[this["current_state"]]; 
 	  }
