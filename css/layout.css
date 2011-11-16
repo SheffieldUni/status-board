@@ -169,6 +169,7 @@ table.calendar {
 }
 
 .columnContainer {
+	height: 200px;
 	text-align: center;
 	display: inline-block;
 	width: 19%;
