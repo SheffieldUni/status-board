@@ -46,12 +46,64 @@ function updateSignificantEvent() {
   })
 }
 
+function updateTwitter() {
+  jQuery(function($){
+      $(".tweet").tweet({
+          query: "@cics",
+          avatar_size: 32,
+          count: 10,
+    template: "{avatar} {text}   ",
+          loading_text: "loading tweets..."
+      });
+  });
+  jQuery(function($){
+      $(".cicsstatus").tweet({
+          query: "#cicsstatus",
+          avatar_size: 32,
+          count: 10,
+          template: "{avatar} {text}   ",
+          loading_text: "loading tweets..."
+      });
+  });
+}
+
+function updageGraphs() {
+  $.getJSON('/vshell/index.php?type=services&mode=json', function(data) { 
+	state["CRITICAL"]=0;
+	state["WARNING"]=0;
+	state["OK"]=0;
+	state["UNKNOWN"]=0;
+	largestState=0;
+	
+    $.each(data, function () { 
+      state[this["current_state"]]++;
+      if (state[this["current_state"]] > largestState) { largestState = state[this["current_state"]]; }
+    });
+
+    // find out the height of our containers so we don't break the view
+    chartDivHeight = $('#chartA').height();
+    chartHeader = $('.columnHeader').height();
+    chartTitle = $('.columnTitle').height();
+    maxColumnHeight = chartDivHeight - (chartHeader+chartTitle);
+    
+    scaleFactor = Math.round(maxColumnHeight / largestState);
+    $('#column_1').css('height',scaleFactor*state["OK"]);
+    $('#column_2').css('height',scaleFactor*state["WARNING"]);
+    $('#column_3').css('height',scaleFactor*state["CRITICAL"]);
+    $('#column_4').css('height',scaleFactor*state["UNKNOWN"]);
+  });
+}
+
+
 $(document).ready( function () {
   updateNagios();
-  setInterval( updateNagios, 5000 );
+  setInterval( updateNagios, 5*1000 );
   updateGoogleCalendar();
-  setInterval( updateGoogleCalendar,900000);
+  setInterval( updateGoogleCalendar,900*1000);
   updateSignificantEvent();
-  setInterval( updateSignificantEvent,900000);
+  setInterval( updateSignificantEvent,900*1000);
+  updateTwitter();
+  setInterval( updateTwitter, 300*1000);
+  updateGraph();
 })
 
