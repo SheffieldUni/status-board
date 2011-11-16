@@ -98,6 +98,7 @@ function updateGraphs() {
     console.debug ('col2 = ',Math.floor(scaleFactor*state["OK"]));
     console.debug ($('#column_1'));
     $('#column_1').height(Math.floor(scaleFactor*state["OK"]));
+    $('#columnContainer_1.header_A').html(state["OK"]);
     $('#column_2').height(Math.floor(scaleFactor*state["WARNING"]));
     $('#column_3').height(Math.floor(scaleFactor*state["CRITICAL"]));
     $('#column_4').height(Math.floor(scaleFactor*state["UNKNOWN"]));
