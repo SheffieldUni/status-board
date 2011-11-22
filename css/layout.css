@@ -66,7 +66,7 @@ body {
 	margin-left: 10px;
 	margin-right: 10px;
 	width: 30%;
-	height: 350px;
+	height: 250px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	overflow: hidden;
@@ -128,11 +128,10 @@ table.calendar {
 
 #comingup {
 	text-transform: uppercase;
-	padding-bottom: 0.5em;
 	text-align: center;
 	font-size: 18pt;
 	color: #666;
-	height: 4em;
+	height: 5em;
 	padding-left: 10%;
 	padding-right: 10%;
 }
