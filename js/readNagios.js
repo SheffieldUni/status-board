@@ -20,7 +20,7 @@ function updateGoogleCalendar() {
 	  calDate = new Date(data["gd$when"][0]["startTime"]);
 	  dateString = calDate.getDate() + "/" + (calDate.getMonth()+1);
 	  event = data["title"]["$t"].replace(/([^,]+),?.*/,'$1');
-	  $('#calendar').append("<tr><td class='date'>"+dateString+"</td><td class='event'>"+event+"</td></tr>\n");
+	  $('#calendar table').append("<tr><td class='date'>"+dateString+"</td><td class='event'>"+event+"</td></tr>\n");
 	})
   })
 }
