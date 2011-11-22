@@ -17,7 +17,7 @@ function updateGoogleCalendar() {
 
 	$.getJSON('http://www.google.com/calendar/feeds/sheffield.ac.uk_5i8cmsq79qd3nm5spk9ftkol0k@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=5&singleevents=true&sortorder=ascending&futureevents=true', function (data) { 
 	  $.each(data["feed"]["entry"], function(value, data) { 
-	  calDate = new Date(data["gd$when"][0]["startTime"]+'T00:00:00.000Z');
+	  calDate = new Date(data["gd$when"][0]["startTime"]);
 	  dateString = calDate.getDate() + "/" + (calDate.getMonth()+1);
 	  event = data["title"]["$t"].replace(/([^,]+),?.*/,'$1');
 	  $('#calendar table').append("<tr><td class='date'>"+dateString+"</td><td class='event'>"+event+"</td></tr>\n");
@@ -31,17 +31,8 @@ function updateSignificantEvent() {
   var out = '';
 
   $.getJSON( 'http://www.google.com/calendar/feeds/sheffield.ac.uk_8v8avojjrlk1lot2lkpl47fn0k@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=1&singleevents=true&sortorder=ascending&futureevents=true', function (data) { 
-    entry = data["feed"]["entry"][0]
-    var calDate;
-    if (entry["gd$when"][0]["startTime"].match(/^\d+-\d+-\d+$/)) { 
-	   console.debug(calDate);
-	   calDate = new Date(entry["gd$when"][0]["startTime"]+'T00:00:00.000Z');
-	   console.debug(calDate);
-	} else {
-      console.debug(calDate);
-      calDate = new Date(entry["gd$when"][0]["startTime"]);
-      console.debug(calDate);
-    } 
+    entry = data["feed"]["entry"][0];
+	calDate = new Date(entry["gd$when"][0]["startTime"]);
     calDate.setHours(0);
     calDate.setMinutes(0);
     calDate.setSeconds(0);
