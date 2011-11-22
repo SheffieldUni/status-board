@@ -26,6 +26,19 @@ function updateGoogleCalendar() {
 	  $('#calendar table').append("<tr><td class='date'>"+dateString+"</td><td class='event'>"+event+"</td></tr>\n");
 	})
   })
+
+  var weekday=new Array(7);
+  weekday[0]="Sunday";
+  weekday[1]="Monday";
+  weekday[2]="Tuesday";
+  weekday[3]="Wednesday";
+  weekday[4]="Thursday";
+  weekday[5]="Friday";
+  weekday[6]="Saturday";
+
+  $('#calendarDate').empty();
+  today = new Date();
+  $('#calendarDate').append(weekday[today.getDay()]+" "+today.getDate()+"/"+today.getMonth());
 }
 
 function updateSignificantEvent() {
