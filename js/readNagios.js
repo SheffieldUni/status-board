@@ -37,7 +37,7 @@ function updateSignificantEvent() {
     calDate.setMinutes(0);
     calDate.setSeconds(0);
     todayDate = new Date();
-    days = Math.floor((calDate - todayDate) / 1000 / 3600 / 24);
+    days = Math.floor((calDate.valueOf() - todayDate.valueOf()) / 1000 / 3600 / 24);
     if (days < 1) { remaining = "today"; }
     else if (days == 1) { remaining = "tomorrow"; }
     else { remaining = "in "+days+" days"; }
