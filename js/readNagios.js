@@ -32,7 +32,7 @@ function updateSignificantEvent() {
 
   $.getJSON( 'http://www.google.com/calendar/feeds/sheffield.ac.uk_8v8avojjrlk1lot2lkpl47fn0k@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=1&singleevents=true&sortorder=ascending&futureevents=true', function (data) { 
     entry = data["feed"]["entry"][0];
-	calDate = new Date(Date.parse(entry["gd$when"][0]["startTime"]));
+	calDate = new Date(entry["gd$when"][0]["startTime"]);
     calDate.setHours(0);
     calDate.setMinutes(0);
     calDate.setSeconds(0);
