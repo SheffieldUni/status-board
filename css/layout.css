@@ -47,7 +47,8 @@ body {
 	-webkit-animation-name: scroll;
 } 
 #tickers {
-	position: absolute;
+	position: fixed;
+	background-color: black;
 	bottom: 0px;
 	left: 0px;
 	margin-top: 1em;
