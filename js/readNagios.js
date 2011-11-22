@@ -34,9 +34,13 @@ function updateSignificantEvent() {
     entry = data["feed"]["entry"][0]
     var calDate;
     if (entry["gd$when"][0]["startTime"].match(/^\d+-\d+-\d+$/)) { 
-	  calDate = new Date(entry["gd$when"][0]["startTime"]+'T00:00:00.000Z');
+	   console.debug(calDate);
+	   calDate = new Date(entry["gd$when"][0]["startTime"]+'T00:00:00.000Z');
+	   console.debug(calDate);
 	} else {
+      console.debug(calDate);
       calDate = new Date(entry["gd$when"][0]["startTime"]);
+      console.debug(calDate);
     } 
     calDate.setHours(0);
     calDate.setMinutes(0);
@@ -93,7 +97,6 @@ function updateGraphs() {
     chartHeader = $('.columnHeader').height();
     chartTitle = $('.columnTitle').height();
     maxColumnHeight = chartDivHeight - (chartHeader+chartTitle);
-    console.debug ('max = '+maxColumnHeight);    
 
     scaleFactor = maxColumnHeight / largestState;
     $('#column_1').height(Math.floor(scaleFactor*state["OK"]));
