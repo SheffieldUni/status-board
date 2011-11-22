@@ -33,7 +33,7 @@ function updateSignificantEvent() {
   $.getJSON( 'http://www.google.com/calendar/feeds/sheffield.ac.uk_8v8avojjrlk1lot2lkpl47fn0k@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=1&singleevents=true&sortorder=ascending&futureevents=true', function (data) { 
     entry = data["feed"]["entry"][0]
     var calDate;
-    if (entry["gs$when"][0]["startTime"].match(/^\d+-\d+-\d+$/)) { 
+    if (entry["gd$when"][0]["startTime"].match(/^\d+-\d+-\d+$/)) { 
 	  calDate = new Date(entry["gd$when"][0]["startTime"]+'T00:00:00.000Z');
 	} else {
       calDate = new Date(entry["gd$when"][0]["startTime"]);
