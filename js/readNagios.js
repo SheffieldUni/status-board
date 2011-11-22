@@ -17,7 +17,7 @@ function updateGoogleCalendar() {
 
 	$.getJSON('http://www.google.com/calendar/feeds/sheffield.ac.uk_5i8cmsq79qd3nm5spk9ftkol0k@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=5&singleevents=true&sortorder=ascending&futureevents=true', function (data) { 
 	  $.each(data["feed"]["entry"], function(value, data) { 
-      calDate = new Date(data["gd$when"][0]["startTime"]); 
+      var calDate = new Date(data["gd$when"][0]["startTime"]); 
 	  if (isNaN(calDate.valueOf())) { 
 		calDate = Date.parseExact(data["gd$when"][0]["startTime"],"yyyy-MM-dd");
 	  }
@@ -35,7 +35,7 @@ function updateSignificantEvent() {
 
   $.getJSON( 'http://www.google.com/calendar/feeds/sheffield.ac.uk_8v8avojjrlk1lot2lkpl47fn0k@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=1&singleevents=true&sortorder=ascending&futureevents=true', function (data) { 
     entry = data["feed"]["entry"][0];
-    calDate = new Date(entry["gd$when"][0]["startTime"] );
+    var calDate = new Date(entry["gd$when"][0]["startTime"] );
 	if (isNaN(calDate.valueOf())) { 
 	  calDate = Date.parseExact(entry["gd$when"][0]["startTime"],"yyyy-MM-dd");
 	}
