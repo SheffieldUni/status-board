@@ -33,10 +33,14 @@ function updateSignificantEvent() {
   $.getJSON( 'http://www.google.com/calendar/feeds/sheffield.ac.uk_8v8avojjrlk1lot2lkpl47fn0k@group.calendar.google.com/public/full?alt=json-in-script&callback=?&orderby=starttime&max-results=1&singleevents=true&sortorder=ascending&futureevents=true', function (data) { 
     entry = data["feed"]["entry"][0]
     var calDate;
-    if (entry["gs$when"][0]["startTime"].match(/^\d+-\d+-\d+$/)) { 
-	  calDate = new Date(entry["gd$when"][0]["startTime"]+'T00:00:00.000Z');
+    if (entry["gd$when"][0]["startTime"].match(/^\d+-\d+-\d+$/)) { 
+	   console.debug(calDate);
+	   calDate = new Date(entry["gd$when"][0]["startTime"]+'T00:00:00.000Z');
+	   console.debug(calDate);
 	} else {
+      console.debug(calDate);
       calDate = new Date(entry["gd$when"][0]["startTime"]);
+      console.debug(calDate);
     } 
     calDate.setHours(0);
     calDate.setMinutes(0);
@@ -93,7 +97,6 @@ function updateGraphs() {
     chartHeader = $('.columnHeader').height();
     chartTitle = $('.columnTitle').height();
     maxColumnHeight = chartDivHeight - (chartHeader+chartTitle);
-    console.debug ('max = '+maxColumnHeight);    
 
     scaleFactor = maxColumnHeight / largestState;
     $('#column_1').height(Math.floor(scaleFactor*state["OK"]));
