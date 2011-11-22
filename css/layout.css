@@ -267,15 +267,15 @@ table.calendar {
 }
 
 .statusOK {
-	color: green;
+	color: #49C817;
 }
 
 .statusCRITICAL {
-	color: red;
+	color: #FD3B15;
 }
 
 .statusWARNING {
-	color: yellow;
+	color: #FABD15;
 }
 
 .statusUNKNOWN {
