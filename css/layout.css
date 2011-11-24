@@ -152,17 +152,19 @@ table.calendar {
 	margin-top: 1em;
 }
 
-#stats table {
+#stats ul {
 	width: 100%;
 }
 
-#stats td {
+#stats li {
+	display: inline;
 	text-align: left;
 	text-transform: uppercase;
 	font-size: 18pt;
 	border: 5px solid black;
 	padding: 5px;
 	background-color: #222;
+	width: 20%;
 }
 
 .chart {
