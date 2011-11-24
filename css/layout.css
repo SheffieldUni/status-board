@@ -148,12 +148,13 @@ table.calendar {
 
 #stats {
 	text-align: center;
-	width: 100%;
+	width: 90%;
+	padding-left: 5%;
 	margin-top: 1em;
 }
 
 #stats ul {
-	width: 90%;
+	width: 100%;
 	margin: 0;
 	padding: 0;
 	text-align: left;
