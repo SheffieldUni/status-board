@@ -61,11 +61,11 @@ body {
 }
 
 .highlight {
-	font-size: 284pt;
+	font-size: 24pt;
 	display: inline-block;
 	margin-left: 10px;
 	margin-right: 10px;
-	width: 20%;
+	width: 30%;
 	height: 400px;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
