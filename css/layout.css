@@ -49,7 +49,7 @@ body {
 #tickers {
 	position: absolute;
 	background-color: black;
-	bottom: 0px;
+	bottom: 1px;
 	left: 0px;
 	margin-top: 1em;
 	width: 100%;
