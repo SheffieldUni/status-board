@@ -219,19 +219,19 @@ table.calendar {
 }
 
 #column_1 {
+        background: #49C817;
+        border-color: #49C817;
+    border-left-color: #4fdd15;
+        border-top-color: #4fdd15;
+        border-right-color: #38a410;
+}
+
+#column_2 {
 	background: #FABD15;
 	border-color: #FABD15;
     border-left-color: #fed615;
 	border-top-color: #fed615;
 	border-right-color: #d5a110;
-}
-
-#column_2 {
-	background: #49C817;
-	border-color: #49C817;
-    border-left-color: #4fdd15;
-	border-top-color: #4fdd15;
-	border-right-color: #38a410;	
 }
 
 #column_3 {
@@ -274,7 +274,7 @@ table.calendar {
 }
 
 .statusOK {
-	color: #FABD15;
+	color: #49C817;
 }
 
 .statusCRITICAL {
@@ -282,7 +282,7 @@ table.calendar {
 }
 
 .statusWARNING {
-	color: #49C817;
+	color: #FABD15;
 }
 
 .statusUNKNOWN {
