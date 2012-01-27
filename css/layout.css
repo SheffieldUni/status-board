@@ -298,3 +298,8 @@ table.calendar {
 	overflow: none;
 	height: 1em;
 }
+
+::-webkit-scrollbar {
+    width: 0px;
+    height: 0px;
+}
