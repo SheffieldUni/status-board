@@ -274,7 +274,7 @@ table.calendar {
 }
 
 .statusOK {
-	color: #49C817;
+	color: #FABD15;
 }
 
 .statusCRITICAL {
@@ -282,7 +282,7 @@ table.calendar {
 }
 
 .statusWARNING {
-	color: #FABD15;
+	color: #49C817;
 }
 
 .statusUNKNOWN {
