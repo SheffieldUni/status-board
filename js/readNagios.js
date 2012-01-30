@@ -1,14 +1,40 @@
+// function updateNagios() {
+//  $.getJSON('/vshell/index.php?type=services&mode=json', function(data) { 
+//	  $.each(data, function () { 
+//        service = this["service_description"];
+//        state = this["current_state"]; 
+//        $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING"); 
+//        $("#service"+service).addClass("status"+state); 
+//        $("#lastUpdated").html('Last Updated at '+new Date().toLocaleTimeString());
+//      }) 
+//  });
+//}
+
 function updateNagios() {
-  $.getJSON('/vshell/index.php?type=services&mode=json', function(data) { 
-	  $.each(data, function () { 
-        service = this["service_description"];
-        state = this["current_state"]; 
-        $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING"); 
-        $("#service"+service).addClass("status"+state); 
-        $("#lastUpdated").html('Last Updated at '+new Date().toLocaleTimeString());
-      }) 
-  });
-}
+  // Get all LIs in the "stats" div
+  var serviceNames = new Array()
+  $("#stats li").each( function() { 
+    serviceNames.push( this.id.match(/^service([0-9a-zA-Z -]+)$/)[1] )
+  } )
+  
+  $.getJSON('/vshell/index.php?type=services&mode=json', function(data) {
+    $.each(data, function () {
+      // is this element one of our services?
+      var service = this["service_description"]
+      if ( serviceNames.indexOf(this["service_description"]) != -1 ) {
+        var serviceID = this["serviceID"]
+        $.getJSON('/vshell/index.php?type=servicedetail&serviceID='+serviceID+'&mode=json', function (data) {
+          if (this["StateType"] == "HARD") {
+            state = this["current_state"];
+            $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING");
+            $("#service"+service).addClass("status"+state);
+          }
+        } )
+      }
+    } )
+  } )
+  $("#lastUpdated").html('Last Updated at '+new Date().toLocaleTimeString());
+}   
 
 function updateGoogleCalendar() {
 	$('#calendar table').empty();
