@@ -7,11 +7,13 @@ function updateNagios() {
   
   $.getJSON('/vshell/index.php?type=services&mode=json', function(data) {
     $.each(data, function () {
+      console.log(this)
       // is this element one of our services?
       var service = this["service_description"]
       if ( serviceNames.indexOf(this["service_description"]) != -1 ) {
         var serviceID = this["serviceID"]
         $.getJSON('/vshell/index.php?type=servicedetail&serviceID='+serviceID+'&mode=json', function (data) {
+          console.log(this)
           if (this["StateType"] == "Hard") {
             state = this["current_state"];
             $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING");
