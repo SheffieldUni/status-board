@@ -1,15 +1,3 @@
-// function updateNagios() {
-//  $.getJSON('/vshell/index.php?type=services&mode=json', function(data) { 
-//	  $.each(data, function () { 
-//        service = this["service_description"];
-//        state = this["current_state"]; 
-//        $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING"); 
-//        $("#service"+service).addClass("status"+state); 
-//        $("#lastUpdated").html('Last Updated at '+new Date().toLocaleTimeString());
-//      }) 
-//  });
-//}
-
 function updateNagios() {
   // Get all LIs in the "stats" div
   var serviceNames = new Array()
@@ -24,7 +12,7 @@ function updateNagios() {
       if ( serviceNames.indexOf(this["service_description"]) != -1 ) {
         var serviceID = this["serviceID"]
         $.getJSON('/vshell/index.php?type=servicedetail&serviceID='+serviceID+'&mode=json', function (data) {
-          if (this["StateType"] == "HARD") {
+          if (this["StateType"] == "Hard") {
             state = this["current_state"];
             $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING");
             $("#service"+service).addClass("status"+state);
