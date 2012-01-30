@@ -305,7 +305,7 @@ table.calendar {
 }
 
 li.tram {
-  display: block;
+  display: inline-block;
   font-size: 18pt;
   width: 22em;
 }
