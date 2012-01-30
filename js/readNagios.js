@@ -157,7 +157,5 @@ $(document).ready( function () {
   setInterval( updateTwitter, 300*1000);
   updateGraphs();
   setInterval( updateGraphs, 5*1000 );
-  updateTramTimes();
-  setInterval( updateTramTimes, 15*1000 );
 })
 
