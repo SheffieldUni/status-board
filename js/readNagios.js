@@ -9,17 +9,16 @@ function updateNagios() {
     $.each(data, function () {
       // is this element one of our services?
       var service = this["service_description"]
-      console.log ('Attempting to check '+service)
       if ( serviceNames.indexOf(this["service_description"]) != -1 ) {
         var serviceID = this["serviceID"]
-        console.log ('Grabbing details for '+serviceID)
-        $.getJSON('/vshell/index.php?type=servicedetail&name_filter='+serviceID+'&mode=json', function (data) {
-          if (this["StateType"] == "Hard") {
-            console.log ('PHWOAAAR')
-            state = this["current_state"];
-            $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING");
-            $("#service"+service).addClass("status"+state);
-          }
+        $.getJSON('/vshell/index.php?type=servicedetail&name_filter='+serviceID+'&mode=json', function (servicedata) {
+          $.each(servicedata, function() {
+            if (servicedata["StateType"] == "Hard") {
+              state = servicedata["State"];
+              $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING");
+              $("#service"+service).addClass("status"+state);
+            } 
+          } )
         } )
       }
     } )
@@ -140,7 +139,7 @@ function updateGraphs() {
 
 $(document).ready( function () {
   updateNagios();
-  setInterval( updateNagios, 5*1000 );
+  setInterval( updateNagios, 15*1000 );
   updateGoogleCalendar();
   setInterval( updateGoogleCalendar,900*1000);
   updateSignificantEvent();
