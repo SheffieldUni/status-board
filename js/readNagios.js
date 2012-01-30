@@ -102,6 +102,15 @@ function updateTwitter() {
   });
 }
 
+function updateTramTimes() {
+  $('#tramtimes ul').empty();
+  $.getJSON('/trams.json', function(data) {
+    $.each(data, function () {
+      $('#tramtimes ul').append("<span class='tram"+data["service"]+"'>"+data["destination"]+"</span><span class='tramduein'>"+data["minutes_to_departure"]+"</span>");
+    } )
+  } )
+}
+
 function updateGraphs() {
   $.getJSON('/vshell/index.php?type=services&mode=json', function(data) { 
     var state = [];
