@@ -306,4 +306,18 @@ table.calendar {
 
 li.tram {
   display: block;
+  font-size: 18pt;
+  width: 22em;
+}
+
+span.tramBLUE {
+  text-color: #77f;
+}
+
+span.tramYELL {
+  text-color: #FABD15;
+}
+
+span.tramduein {
+  float: right;
 }
