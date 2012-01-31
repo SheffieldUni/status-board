@@ -1,18 +1,12 @@
 body {
-	background-color: black;
-	color: white;
+	background-color: #000;
+	color: #fff;
 	font-family: ubuntu, sans-serif;
         overflow-y: hidden;
 }
 
-#ticker1 {
+#ticker1, #ticker2 {
 	font-size: 18pt;
-	text-transform: uppercase;
-	height: 1em;
-}
-
-#ticker2 {
-	font-size: 18pt; 
 	text-transform: uppercase;
 	height: 1em;
 }
@@ -140,11 +134,6 @@ table.calendar {
 #comingup {
 	margin-top: 0.25em;
 	margin-bottom: 0.5em;
-}
-
-#comingup b {
-	color: white;
-	font-weight: normal;
 }
 
 #stats {
