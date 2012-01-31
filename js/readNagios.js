@@ -150,8 +150,28 @@ function updateGraphs() {
   });
 }
 
+jQuery.getParams = function () {
+    var params = {};
+    var split = window.location.href.slice(
+        window.location.href.indexOf('?') + 1
+    ).split('&');
+    
+    for (var i = 0; i < split.length; i++) {
+        params[split[i].split('=')[0]] = split[i].split('=')[1]|| null;
+    }
+    
+    return params;
+}
+
+function checkCSSParameter() {
+  var css=$.getParams["css"]
+  if (css) {
+    $('<link rel="stylesheet" type="text/css" href="css/"+css+".css'>).appendTo("head")
+  }
+}
 
 $(document).ready( function () {
+  checkCSSParameter();
   updateTramTimes();
   setInterval( updateTramTimes, 10*1000 );
   updateNagios();
