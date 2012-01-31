@@ -311,10 +311,20 @@ li.tram {
 }
 
 span.tramBLUE {
-  color: #77f;
+  background-color: #77f;
 }
 
 span.tramYELL {
-  color: #FED615;
+  background-color: #FED615;
 }
 
+span.tramduein {
+  display: inline-block;
+  width: 1.5em;
+  text-align: center;
+  color: black;
+}
+
+span.destination {
+  background-color: transparent;
+}
