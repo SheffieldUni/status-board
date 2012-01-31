@@ -103,14 +103,12 @@ function updateTwitter() {
 }
 
 function updateTramTimes() {
-  var replacementChildren = $()
-  replacementChildren.append("<ul class='tram'>")
+  var replacementChildren = $("<ul class='tram'>")
   $.getJSON('/trams.json', function(data) {
     $.each(data, function () {
       replacementChildren.append("<li class='tram'><span class='tramduein tram"+this["service"]+"'>"+this["minutes_to_departure"]+"</span><span class='tramdestination'>"+this["destination"]+"</span></li>");
     } )
   } )
-  replacementChildren.append("</ul>")
   $('ul.tram').replaceWith(replacementChildren)
 }
 
