@@ -107,7 +107,7 @@ function updateTramTimes() {
   replacementChildren.append("<ul class='tram'>")
   $.getJSON('/trams.json', function(data) {
     $.each(data, function () {
-      replacementChilden.append("<li class='tram'><span class='tramduein tram"+this["service"]+"'>"+this["minutes_to_departure"]+"</span><span class='tramdestination'>"+this["destination"]+"</span></li>");
+      replacementChildren.append("<li class='tram'><span class='tramduein tram"+this["service"]+"'>"+this["minutes_to_departure"]+"</span><span class='tramdestination'>"+this["destination"]+"</span></li>");
     } )
   } )
   replacementChildren.append("</ul>")
