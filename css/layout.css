@@ -17,7 +17,7 @@ body {
 	height: 1em;
 }
 
-.ticker ul, li {
+.ticker ul, .ticker li {
 	color: white;
 	display: inline;
 	text-decoration: none;
