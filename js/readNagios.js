@@ -106,7 +106,11 @@ function updateTramTimes() {
   var replacementChildren = $("<ul class='tram'>")
   $.getJSON('/trams.json', function(data) {
     $.each(data, function () {
-      replacementChildren.append("<li class='tram'><span class='tramduein tram"+this["service"]+"'>"+this["minutes_to_departure"]+"</span><span class='tramdestination'>"+this["destination"]+"</span></li>");
+      var departure = this["minutes_to_departure"]
+      if (departure == 0) {
+        departure = '&nbsp;'
+      } 
+      replacementChildren.append("<li class='tram'><span class='tramduein tram"+this["service"]+"'>"+departure+"</span><span class='tramdestination'>"+this["destination"]+"</span></li>");
     } )
   } )
   $('ul.tram').replaceWith(replacementChildren)
