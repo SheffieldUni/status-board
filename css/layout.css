@@ -304,6 +304,10 @@ table.calendar {
     height: 0px;
 }
 
+ul.tram { 
+  float: left;
+}
+
 li.tram {
   display: inline-block;
   font-size: 18pt;
