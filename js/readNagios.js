@@ -166,7 +166,7 @@ jQuery.getParams = function () {
 function checkCSSParameter() {
   var css=$.getParams["css"]
   if (css) {
-    $('<link rel="stylesheet" type="text/css" href="css/"+css+".css'>).appendTo("head")
+    $('<link rel="stylesheet" type="text/css" href="css/'+css+'.css">').appendTo("head")
   }
 }
 
