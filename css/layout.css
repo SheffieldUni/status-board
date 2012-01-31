@@ -129,11 +129,13 @@ table.calendar {
 	height: 6em;
 	padding-left: 10%;
 	padding-right: 10%;
+        margin-top: 0.25em;
+        margin-bottom: 0.5em;
 }
 
-#comingup {
-	margin-top: 0.25em;
-	margin-bottom: 0.5em;
+#comingup strong {
+  font-weight: normal;
+  color: #fff;
 }
 
 #stats {
