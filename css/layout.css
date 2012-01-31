@@ -306,6 +306,7 @@ table.calendar {
 
 ul.tram { 
   float: left;
+  overflow: hidden;
 }
 
 li.tram {
@@ -329,6 +330,6 @@ span.tramduein {
   color: black;
 }
 
-span.destination {
-  background-color: transparent;
+span.tramdestination {
+  margin-left: 0.5em;
 }
