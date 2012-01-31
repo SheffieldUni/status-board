@@ -147,6 +147,8 @@ function updateGraphs() {
 
 
 $(document).ready( function () {
+  updateTramTimes();
+  setInterval( updateTramTimes, 10*1000 );
   updateNagios();
   setInterval( updateNagios, 15*1000 );
   updateGoogleCalendar();
