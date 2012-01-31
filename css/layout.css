@@ -307,12 +307,15 @@ table.calendar {
 ul.tram { 
   float: left;
   overflow: hidden;
+  margin: 0;
+  padding: 0 0 0 1em;
 }
 
 li.tram {
   display: inline-block;
   font-size: 18pt;
   width: 22em;
+  padding-bottom: 0.25em;
 }
 
 span.tramBLUE {
