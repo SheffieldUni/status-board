@@ -17,6 +17,14 @@ body {
 	height: 1em;
 }
 
+.ticker ul, li {
+	color: white;
+	display: inline;
+	text-decoration: none;
+	overflow: auto;
+	white-space: nowrap;
+}
+
 .ticker {
 	border-top: 5px;
 	width: 100%;
@@ -319,9 +327,4 @@ span.tramduein {
 
 span.destination {
   background-color: transparent;
-}
-
-#tramtimes ul {
-  margin: 0;
-  padding: 0 0 0 1em;
 }
