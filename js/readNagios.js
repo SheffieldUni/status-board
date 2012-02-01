@@ -54,7 +54,7 @@ function updateGoogleCalendar() {
 
   $('#calendarDate').empty();
   today = new Date();
-  $('#calendarDate').append(weekday[today.getDay()]+" "+today.getDate()+"/"+today.getMonth()+1);
+  $('#calendarDate').append(weekday[today.getDay()]+" "+today.getDate()+"/"+(today.getMonth()+1));
 }
 
 function updateSignificantEvent() {
