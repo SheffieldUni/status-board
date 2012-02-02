@@ -216,7 +216,7 @@ function displayImages(data) {
     htmlString += '<img id="prettypicture" title="' + item.title + '" src="' + sourceSquare + '">';
     
     // Pop our HTML in the #images DIV
-    $('div#wishyouwerehere').html(htmlString);
+    $('div#highlight1').html(htmlString);
 
     // now we make sure it fits right
     $('#prettypicture').fitToParent();
