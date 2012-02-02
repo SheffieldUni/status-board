@@ -213,7 +213,7 @@ function displayImages(data) {
     var sourceSquare = item.media.m
 
     // Here's where we piece together the HTML
-    htmlString += '<img id='prettypicture' title="' + item.title + '" src="' + sourceSquare + '">';
+    htmlString += '<img id="prettypicture" title="' + item.title + '" src="' + sourceSquare + '">';
     
     // Pop our HTML in the #images DIV
     $('div#wishyouwerehere').html(htmlString);
