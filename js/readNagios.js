@@ -226,6 +226,8 @@ $(document).ready( function () {
   checkCSSParameter();
   updateTramTimes();
   setInterval( updateTramTimes, 10*1000 );
+  updateFlickr();
+  setInterval( updateFlickr, 300*1000 );
   updateNagios();
   setInterval( updateNagios, 15*1000 );
   updateGoogleCalendar();
