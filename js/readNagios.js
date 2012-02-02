@@ -170,6 +170,26 @@ function checkCSSParameter() {
   }
 }
 
+function updateFlickr() {
+  $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=25618167@N00&format=json&jsoncallback=?", displayImages);
+}
+
+function displayImages(data) {
+
+    // Start putting together the HTML string
+    var htmlString = "";
+    
+    // Now start cycling through our array of Flickr photo details
+    item = data.items[0];
+    
+    // Here's where we piece together the HTML
+    htmlString += '<img title="' + item.title + '" src="' + sourceSquare;
+    htmlString += '" alt="'; htmlString += item.title + '" />';
+    
+    // Pop our HTML in the #images DIV
+    $('div#wishyouwerehere').html(htmlString);
+}
+
 $(document).ready( function () {
   checkCSSParameter();
   updateTramTimes();
