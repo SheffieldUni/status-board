@@ -170,6 +170,35 @@ function checkCSSParameter() {
   }
 }
 
+jQuery.fn.fitToParent = function()
+{
+    this.each(function()
+    {
+        var width  = $(this).width();
+        var height = $(this).height();
+        var parentWidth  = $(this).parent().width();
+        var parentHeight = $(this).parent().height();
+
+        if(width/parentWidth < height/parentHeight)
+        {
+                newWidth  = parentWidth;
+                newHeight = newWidth/width*height;
+        }
+        else
+        {
+                newHeight = parentHeight;
+                newWidth  = newHeight/height*width;
+        }
+        margin_top  = (parentHeight - newHeight) / 2;
+        margin_left = (parentWidth  - newWidth ) / 2;
+
+        $(this).css({'margin-top' :margin_top  + 'px',
+                     'margin-left':margin_left + 'px',
+                     'height'     :newHeight   + 'px',
+                     'width'      :newWidth    + 'px'});
+    });
+};
+
 function updateFlickr() {
   $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?id=25618167@N00&format=json&jsoncallback=?", displayImages);
 }
@@ -184,11 +213,13 @@ function displayImages(data) {
     var sourceSquare = item.media.m
 
     // Here's where we piece together the HTML
-    htmlString += '<img title="' + item.title + '" src="' + sourceSquare;
-    htmlString += '" alt="'; htmlString += item.title + '" />';
+    htmlString += '<img id='prettypicture' title="' + item.title + '" src="' + sourceSquare + '">';
     
     // Pop our HTML in the #images DIV
     $('div#wishyouwerehere').html(htmlString);
+
+    // now we make sure it fits right
+    $('#prettypicture').fitToParent();
 }
 
 $(document).ready( function () {
