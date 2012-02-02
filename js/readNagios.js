@@ -181,7 +181,8 @@ function displayImages(data) {
     
     // Now start cycling through our array of Flickr photo details
     item = data.items[0];
-    
+    var sourceSquare = item.media.m
+
     // Here's where we piece together the HTML
     htmlString += '<img title="' + item.title + '" src="' + sourceSquare;
     htmlString += '" alt="'; htmlString += item.title + '" />';
