@@ -1,6 +1,4 @@
-@media handheld {
-  #highlights, #tickers {
+#highlights, #tickers {
     display: none;
-  }
 }
 
