@@ -10,7 +10,7 @@ function updateNagios() {
       // is this element one of our services?
       var service = this["service_description"]
       if ( serviceNames.indexOf(this["service_description"]) != -1 ) {
-        var serviceID = this["serviceID"]
+        var serviceID = this["service_id"];
         $.getJSON('/vshell/index.php?type=servicedetail&name_filter='+serviceID+'&mode=json', function (servicedata) {
           $.each(servicedata, function() {
             if (servicedata["StateType"] == "Hard") {
@@ -125,10 +125,16 @@ function updateGraphs() {
 	state["UNKNOWN"]=0;
 	var largestState=0;
 	
-    $.each(data, function () { 
-      state[this["current_state"]]++;
-      if (state[this["current_state"]] > largestState) {
-	    largestState = state[this["current_state"]]; 
+    $.each(data, function () {
+      var statemap = [];
+      statemap[0]="OK";
+      statemap[1]="WARNING";
+      statemap[2]="CRITICAL";
+      statemap[3]="UNKNOWN";
+      
+      state[statemap[this["current_state"]]]++;
+      if (state[statemap[this["current_state"]]] > largestState) {
+	    largestState = state[statemap[this["current_state"]]]; 
 	  }
     });
 
