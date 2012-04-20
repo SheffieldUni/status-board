@@ -11,15 +11,13 @@ function updateNagios() {
       var service = this["service_description"]
       if ( serviceNames.indexOf(this["service_description"]) != -1 ) {
         var serviceID = this["service_id"];
-        $.getJSON('/vshell/index.php?type=servicedetail&name_filter='+serviceID+'&mode=json', function (servicedata) {
-          $.each(servicedata, function() {
-            if (servicedata["StateType"] == "Hard") {
-              state = servicedata["State"];
-              $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING");
-              $("#service"+service).addClass("status"+state);
-            } 
-          } )
-        } )
+        var statemap = [];
+        statemap[0]="OK";
+        statemap[1]="WARNING";
+        statemap[2]="CRITICAL";
+        statemap[3]="UNKNOWN";
+        $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING");
+        $("#service"+service).addClass("status"+statemap[state]);
       }
     } )
   } )
