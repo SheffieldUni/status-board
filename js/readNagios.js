@@ -11,6 +11,7 @@ function updateNagios() {
       var service = this["service_description"]
       if ( serviceNames.indexOf(this["service_description"]) != -1 ) {
         var serviceID = this["service_id"];
+        var state = this["last_hard_state"];
         var statemap = [];
         statemap[0]="OK";
         statemap[1]="WARNING";
