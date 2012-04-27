@@ -266,6 +266,10 @@ table.calendar {
 	color: #444;
 }
 
+.statusCHANGING {
+  opacity: 0.5;
+}
+
 .statusOK {
 	color: #49C817;
 }
