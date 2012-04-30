@@ -5,7 +5,7 @@ function updateNagios() {
     serviceNames.push( this.id.match(/^service([0-9a-zA-Z -]+)$/)[1] )
   } )
   
-  $.getJSON('/vshell/index.php?type=services&mode=json', function(data) {
+  $.getJSON('/vshell/index.php?type=services&mode=jsonp&callback=?', function(data) {
     $.each(data, function () {
       // is this element one of our services?
       var service = this["service_description"]
