@@ -120,7 +120,7 @@ function updateTramTimes() {
 }
 
 function updateGraphs() {
-  $.getJSON('/vshell/index.php?type=services&mode=json', function(data) { 
+  $.getJSON('/vshell/index.php?type=services&mode=jsonp&callback=?', function(data) { 
     var state = [];
 	state["CRITICAL"]=0;
 	state["WARNING"]=0;
