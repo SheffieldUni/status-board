@@ -120,6 +120,7 @@ function updateTramTimes() {
 }
 
 function updateGraphs() {
+  // rewrite this to use a single cached copy of the json data
   $.getJSON('/vshell/index.php?type=services&mode=jsonp&callback=?', function(data) { 
     var state = [];
 	state["CRITICAL"]=0;
