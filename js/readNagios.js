@@ -233,18 +233,18 @@ function displayImages(data) {
 
 $(document).ready( function () {
   checkCSSParameter();
-  updateTramTimes();
-  setInterval( updateTramTimes, 10*1000 );
-  updateFlickr();
-  setInterval( updateFlickr, 300*1000 );
+//  updateTramTimes();
+//  setInterval( updateTramTimes, 10*1000 );
+//  updateFlickr();
+//  setInterval( updateFlickr, 300*1000 );
   updateNagios();
   setInterval( updateNagios, 15*1000 );
   updateGoogleCalendar();
   setInterval( updateGoogleCalendar,900*1000);
   updateSignificantEvent();
   setInterval( updateSignificantEvent,900*1000);
-  updateTwitter();
-  setInterval( updateTwitter, 300*1000);
+//  updateTwitter();
+//  setInterval( updateTwitter, 300*1000);
   updateGraphs();
   setInterval( updateGraphs, 5*1000 );
 })
