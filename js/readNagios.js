@@ -5,21 +5,15 @@ function updateNagios() {
     serviceNames.push( this.id.match(/^service([0-9a-zA-Z -]+)$/)[1] )
   } )
   
-  $.getJSON('/vshell/index.php?type=services&mode=jsonp&callback=?', function(data) {
-    $.each(data, function () {
+  $.getJSON('/vshell/index.php?type=servicegroups&name_filter=status&mode=jsonp&callback=?', function(data) {
+    $.each(data["status"]["services"], function () {
       // is this element one of our services?
-      var service = this["service_description"]
-      if ( serviceNames.indexOf(this["service_description"]) != -1 ) {
-        var serviceID = this["service_id"];
+      var service = this["description"]
+      if ( serviceNames.indexOf(this["description"]) != -1 ) {
         var state = this["last_hard_state"];
         var stateChanging = this["last_hard_state"] != this["current_state"]; 
-        var statemap = [];
-        statemap[0]="OK";
-        statemap[1]="WARNING";
-        statemap[2]="CRITICAL";
-        statemap[3]="UNKNOWN";
         $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING statusCHANGING");
-        $("#service"+service).addClass("status"+statemap[state]);
+        $("#service"+service).addClass("status"+state);
         if (stateChanging) {
           $("#service"+service).addClass("statusCHANGING");
         }
@@ -121,7 +115,7 @@ function updateTramTimes() {
 
 function updateGraphs() {
   // rewrite this to use a single cached copy of the json data
-  $.getJSON('/vshell/index.php?type=services&mode=jsonp&callback=?', function(data) { 
+  $.getJSON('/vshell/index.php?type=servicegroups&name_filter=status&mode=jsonp&callback=?', function(data) { 
     var state = [];
 	state["CRITICAL"]=0;
 	state["WARNING"]=0;
@@ -129,16 +123,10 @@ function updateGraphs() {
 	state["UNKNOWN"]=0;
 	var largestState=0;
 	
-    $.each(data, function () {
-      var statemap = [];
-      statemap[0]="OK";
-      statemap[1]="WARNING";
-      statemap[2]="CRITICAL";
-      statemap[3]="UNKNOWN";
-      
-      state[statemap[this["current_state"]]]++;
-      if (state[statemap[this["current_state"]]] > largestState) {
-	    largestState = state[statemap[this["current_state"]]]; 
+    $.each(data['status']['services'], function () {
+      state[this["current_state"]]++;
+      if (state[this["current_state"]] > largestState) {
+	    largestState = state[this["current_state"]]; 
 	  }
     });
 
