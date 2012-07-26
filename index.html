@@ -38,25 +38,33 @@
   <div id="main" role="main">
     <div id="charts" class="charts">
       <div id="chartA" class="chart">
+        <div class='columnFull'>
         <div class='columnContainer' id='columnContainer_1'>
           <div class='columnHeader'><span class='header_A'>1</span></div>
           <div class='column' id='column_1' style="height: 0px"></div>
           <div class='columnTitle'>OK</div>
         </div>
+        </div>
+        <div class='columnFull'>
         <div class='columnContainer' id='columnContainer_2'>
           <div class='columnHeader'><span class='header_A'>1</span></div>
           <div class='column' id='column_2' style="height: 0px"></div>
           <div class='columnTitle'>Warning</div>
         </div>
+        </div>
+        <div class='columnFull'>
         <div class='columnContainer' id='columnContainer_3'>
           <div class='columnHeader'><span class='header_A'>1</span></div>
           <div class='column' id='column_3' style="height: 0px"></div>
           <div class='columnTitle'>Critical</div>
         </div>
+        </div>
+        <div class='columnFull'>
         <div class='columnContainer' id='columnContainer_4'>
           <div class='columnHeader'><span class='header_A'>1</span></div>
           <div class='column' id='column_4' style="height: 0px"></div>
           <div class='columnTitle'>Unknown</div>
+        </div>
         </div>
       </div>
     </div>
@@ -78,6 +86,7 @@
       <li id="serviceSearch">Search</li>
       <li id="serviceCMS">CMS2</li>
       <li id="servicePassword">Password</li>
+      <li id="servicePCAvail">PCAvail</li>
       <li id="serviceCPanel">cPanel</li>
       <li id="servicemyJob">myJob</li>
       <li id="serviceMyPC">myPC</li>
@@ -92,12 +101,12 @@
     <strong>Updating...</strong>
   </div>
   <div id="highlights">
-    <div class="highlight highlightGradiant" id="highlight1">
+<!--    <div class="highlight highlightGradiant" id="highlight1">
     </div>
     <div class="highlight highlightGradiant" id="highlight2">
       <div class="highlightHeader">Trams Due</div>
       <div class="highlightContent" id="tramtimes">&nbsp; <ul class='tram'></ul></div>
-    </div>
+    </div> -->
     <div class="highlight" id="calendar">
       <div id="calendarDate" class="highlightHeader red">Tuesday 15/11</div>
       <div class="highlightContent">&nbsp;
@@ -118,19 +127,15 @@
       </div>
     </div>
   </div>
-  <div id="tickers">
+  <!-- <div id="tickers">
     <marquee behavior="scroll" scrollamount="4" direction="left" id="ticker1" class="ticker">
       <div class="cicsstatus"></div>
     </marquee>
     <marquee behavior="scroll" scrollamount="7" direction="left" id="ticker2" class="ticker">
       <div class="tweet"></div>
     </marquee>
-  </div>
+  </div> -->
  
-<!-- <script type="text/javascript">
-    $('marquee').marquee();
-  </script> --> 
-
   <!-- scripts concatenated and minified via ant build script-->
   <script defer src="js/plugins.js"></script>
   <script defer src="js/script.js"></script>

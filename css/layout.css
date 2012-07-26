@@ -6,7 +6,7 @@ body {
 }
 
 #ticker1, #ticker2 {
-	font-size: 18pt;
+	font-size: 100%;
 	text-transform: uppercase;
 	height: 1em;
 }
@@ -23,7 +23,7 @@ body {
 	border-top: 5px;
 	width: 100%;
 	font-family: ubuntu, sans-serif;
-	font-size: 18pt;
+	font-size: 100%;
 	text-transform: uppercase;
 }
 
@@ -52,17 +52,16 @@ body {
 
 #highlights {
 	text-align: center;
-	height: 400px;
         margin-left: 5%;
 }
 
 .highlight {
-	font-size: 20pt;
+	font-size: 100%;
 	display: inline-block;
 	margin-left: 10px;
 	margin-right: 10px;
 	width: 20em;
-	height: 350px;
+	height: 18em;
 	-moz-border-radius: 15px;
 	border-radius: 15px;
 	overflow: hidden;
@@ -109,7 +108,7 @@ table.calendar {
 	border-width: 3px;
 	border-bottom-style: solid;
 	border-color: black;
-	font-size: 14pt;
+	font-size: 100%;
 }
 
 .date {
@@ -120,19 +119,18 @@ table.calendar {
 
 .highlightContent {
 	text-align: left;
-	font-size: 14pt;
+	font-size: 100%;
 }
 
 #comingup {
 	text-transform: uppercase;
 	text-align: center;
-	font-size: 28pt;
+	font-size: 120%;
 	color: #666;
-	height: 6em;
 	padding-left: 10%;
 	padding-right: 10%;
         margin-top: 0.25em;
-        margin-bottom: 0.5em;
+        margin-bottom: 1em;
 }
 
 #comingup strong {
@@ -158,28 +156,32 @@ table.calendar {
 	display: inline-block;
 	text-align: left;
 	text-transform: uppercase;
-        font-size: 200%;
+        font-size: 150%;
 	background-color: #222;
-	width: 10em;
+	width: 7em;
 	padding-left: 0px;
 	margin: 2px;
 }
 
 .chart {
 	text-align: center;
-	height: 200px;
-	vertical-align: bottom;
+}
+
+.columnFull {
+        height: 10em;
+        display: inline-block;
+        vertical-align: bottom;
 }
 
 .columnContainer {
 	text-align: center;
 	display: inline-block;
-	width: 24%;
+	width: 10em;
 }
 
 .columnHeader {
 	font-family: ubuntu, sans-serif;
-	font-size: 18pt;
+	font-size: 100%;
 	color: #888;	
 }
 
@@ -193,7 +195,7 @@ table.calendar {
 
 .columnTitle {
 	font-family: 'ubuntu', sans-serif;
-	font-size: 18pt;
+	font-size: 150%;
 	text-transform: uppercase;
 }
 
@@ -260,7 +262,7 @@ table.calendar {
 }
 
 #lastUpdated {
-	font-size: 12pt;
+	font-size: 70%;
 	width: 100%;
 	text-align: right;
 	color: #444;
@@ -310,7 +312,7 @@ ul.tram {
 
 li.tram {
   display: inline-block;
-  font-size: 18pt;
+  font-size: 100%;
   width: 22em;
   padding-bottom: 0.25em;
 }

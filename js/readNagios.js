@@ -142,7 +142,7 @@ function updateGraphs() {
     });
 
     // find out the height of our containers so we don't break the view
-    chartDivHeight = $('#chartA').height();
+    chartDivHeight = $('.columnFull').height();
     chartHeader = $('.columnHeader').height();
     chartTitle = $('.columnTitle').height();
     maxColumnHeight = chartDivHeight - (chartHeader+chartTitle);
