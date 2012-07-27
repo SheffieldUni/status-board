@@ -1,3 +1,15 @@
+var services;
+var states;
+
+function updateFromNagios() {
+  $.getJSON('/vshell/index.php?type=servicegroups&name_filter=status&mode=jsonp&callback=?', function(data) {
+    services=data["status"]["services"];
+    states=data["status"]["state_counts"];
+    updateNagios();
+    updateGraphs();
+  });
+}
+
 function updateNagios() {
   // Get all LIs in the "stats" div
   var serviceNames = new Array()
@@ -5,20 +17,18 @@ function updateNagios() {
     serviceNames.push( this.id.match(/^service([0-9a-zA-Z -]+)$/)[1] )
   } )
   
-  $.getJSON('/vshell/index.php?type=servicegroups&name_filter=status&mode=jsonp&callback=?', function(data) {
-    $.each(data["status"]["services"], function () {
-      // is this element one of our services?
-      var service = this["description"]
-      if ( serviceNames.indexOf(this["description"]) != -1 ) {
-        var state = this["last_hard_state"];
-        var stateChanging = this["last_hard_state"] != this["current_state"]; 
-        $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING statusCHANGING");
-        $("#service"+service).addClass("status"+state);
-        if (stateChanging) {
-          $("#service"+service).addClass("statusCHANGING");
-        }
+  $.each(services, function () {
+    // is this element one of our services?
+    var service = this["description"]
+    if ( serviceNames.indexOf(this["description"]) != -1 ) {
+      var state = this["last_hard_state"];
+      var stateChanging = this["last_hard_state"] != this["current_state"]; 
+      $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING statusCHANGING");
+      $("#service"+service).addClass("status"+state);
+      if (stateChanging) {
+        $("#service"+service).addClass("statusCHANGING");
       }
-    } )
+    }
   } )
   $("#lastUpdated").html('Last Updated at '+new Date().toLocaleTimeString());
 }   
@@ -114,38 +124,28 @@ function updateTramTimes() {
 }
 
 function updateGraphs() {
-  // rewrite this to use a single cached copy of the json data
-  $.getJSON('/vshell/index.php?type=servicegroups&name_filter=status&mode=jsonp&callback=?', function(data) { 
-    var state = [];
-	state["CRITICAL"]=0;
-	state["WARNING"]=0;
-	state["OK"]=0;
-	state["UNKNOWN"]=0;
-	var largestState=0;
-	
-    $.each(data['status']['services'], function () {
-      state[this["current_state"]]++;
-      if (state[this["current_state"]] > largestState) {
-	    largestState = state[this["current_state"]]; 
-	  }
-    });
+  var largestState = 0;
+  for (var state in states) {
+    if (states[state] > largestState) {
+      largestState = states[state]; 
+    }
+  }
 
-    // find out the height of our containers so we don't break the view
-    chartDivHeight = $('.columnFull').height();
-    chartHeader = $('.columnHeader').height();
-    chartTitle = $('.columnTitle').height();
-    maxColumnHeight = chartDivHeight - (chartHeader+chartTitle);
+  // find out the height of our containers so we don't break the view
+  chartDivHeight = $('.columnFull').height();
+  chartHeader = $('.columnHeader').height();
+  chartTitle = $('.columnTitle').height();
+  maxColumnHeight = chartDivHeight - (chartHeader+chartTitle);
 
-    scaleFactor = maxColumnHeight / largestState;
-    $('#column_1').height(Math.floor(scaleFactor*state["OK"]));
-    $('#columnContainer_1 .header_A').html(state["OK"]);
-    $('#column_2').height(Math.floor(scaleFactor*state["WARNING"]));
-    $('#columnContainer_2 .header_A').html(state["WARNING"]);
-    $('#column_3').height(Math.floor(scaleFactor*state["CRITICAL"]));
-    $('#columnContainer_3 .header_A').html(state["CRITICAL"]);
-    $('#column_4').height(Math.floor(scaleFactor*state["UNKNOWN"]));
-    $('#columnContainer_4 .header_A').html(state["UNKNOWN"]);
-  });
+  scaleFactor = maxColumnHeight / largestState;
+  $('#column_1').height(Math.floor(scaleFactor*states["OK"]));
+  $('#columnContainer_1 .header_A').html(states["OK"]);
+  $('#column_2').height(Math.floor(scaleFactor*states["WARNING"]));
+  $('#columnContainer_2 .header_A').html(states["WARNING"]);
+  $('#column_3').height(Math.floor(scaleFactor*states["CRITICAL"]));
+  $('#columnContainer_3 .header_A').html(states["CRITICAL"]);
+  $('#column_4').height(Math.floor(scaleFactor*states["UNKNOWN"]));
+  $('#columnContainer_4 .header_A').html(states["UNKNOWN"]);
 }
 
 jQuery.getParams = function () {
@@ -222,19 +222,11 @@ function displayImages(data) {
 
 $(document).ready( function () {
   checkCSSParameter();
-//  updateTramTimes();
-//  setInterval( updateTramTimes, 10*1000 );
-//  updateFlickr();
-//  setInterval( updateFlickr, 300*1000 );
-  updateNagios();
-  setInterval( updateNagios, 15*1000 );
+  updateFromNagios();
+  setInterval( updateFromNagios, 10*1000 );
   updateGoogleCalendar();
   setInterval( updateGoogleCalendar,900*1000);
   updateSignificantEvent();
   setInterval( updateSignificantEvent,900*1000);
-//  updateTwitter();
-//  setInterval( updateTwitter, 300*1000);
-  updateGraphs();
-  setInterval( updateGraphs, 5*1000 );
 })
 
