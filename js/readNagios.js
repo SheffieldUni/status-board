@@ -11,25 +11,31 @@ function updateFromNagios() {
 }
 
 function updateNagios() {
-  // Get all LIs in the "stats" div
-  var serviceNames = new Array()
-  $("#stats li").each( function() { 
-    serviceNames.push( this.id.match(/^service([0-9a-zA-Z -]+)$/)[1] )
-  } )
-  
+  // Get the stats UL
+  var ulstats=$("#stats ul");
+ 
   $.each(services, function () {
-    // is this element one of our services?
-    var service = this["description"]
-    if ( serviceNames.indexOf(this["description"]) != -1 ) {
-      var state = this["last_hard_state"];
-      var stateChanging = this["last_hard_state"] != this["current_state"]; 
-      $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING statusCHANGING");
-      $("#service"+service).addClass("status"+state);
-      if (stateChanging) {
-        $("#service"+service).addClass("statusCHANGING");
-      }
+    var service = this["description"];
+    var state = this["last_hard_state"];
+    var stateChanging = this["last_hard_state"] != this["current_state"]; 
+
+    if ( $('li#service'+service).length == 0 ) {
+      console.log(ulstats);
+      ulstats.append('<li id="service'+service+'">'+service+'</li>');
     }
-  } )
+
+    $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING statusCHANGING");
+    $("#service"+service).addClass("status"+state);
+    if (stateChanging) {
+      $("#service"+service).addClass("statusCHANGING");
+    } 
+  } );
+
+  // sort the list in alphabetical order
+  $('#stats li').sortElements(function(a, b){
+    return $(a).text().toLowerCase() > $(b).text().toLowerCase() ? 1 : -1;
+  }); 
+
   $("#lastUpdated").html('Last Updated at '+new Date().toLocaleTimeString());
 }   
 
