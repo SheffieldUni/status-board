@@ -1,10 +1,11 @@
 var services;
 var states;
+var label;
 
-function updateFromNagios() {
-  $.getJSON('/vshell/index.php?type=servicegroups&name_filter=status&mode=jsonp&callback=?', function(data) {
-    services=data["status"]["services"];
-    states=data["status"]["state_counts"];
+function updateFromNagios(group) {
+  $.getJSON('/vshell/index.php?type=servicegroups&name_filter='+group+'&mode=jsonp&callback=?', function(data) {
+    services=data[group]["services"];
+    states=data[group]["state_counts"];
     updateNagios();
     updateGraphs();
   });
@@ -15,19 +16,27 @@ function updateNagios() {
   var ulstats=$("#stats ul");
  
   $.each(services, function () {
+    var host = this["host_name"];
     var service = this["description"];
     var state = this["last_hard_state"];
+    var servicetag = (host+"-"+service).replace(/[ ]/gi,'');
     var stateChanging = this["last_hard_state"] != this["current_state"]; 
-
-    if ( $('li#service'+service).length == 0 ) {
-      console.log(ulstats);
-      ulstats.append('<li id="service'+service+'">'+service+'</li>');
+    
+    if (label == 'host') {
+      servicelabel = this["host_name"]; 
+    } else {
+      servicelabel = this["description"];
     }
 
-    $("#service"+service).removeClass("statusOK statusCRITICAL statusERROR statusWARNING statusCHANGING");
-    $("#service"+service).addClass("status"+state);
+    if ( $('li#service'+servicetag).length == 0 ) {
+      console.log(ulstats);
+      ulstats.append('<li id="service'+servicetag+'">'+servicelabel+'</li>');
+    }
+
+    $("#service"+servicetag).removeClass("statusOK statusCRITICAL statusERROR statusWARNING statusCHANGING");
+    $("#service"+servicetag).addClass("status"+state);
     if (stateChanging) {
-      $("#service"+service).addClass("statusCHANGING");
+      $("#service"+servicetag).addClass("statusCHANGING");
     } 
   } );
 
@@ -144,13 +153,13 @@ function updateGraphs() {
   maxColumnHeight = chartDivHeight - (chartHeader+chartTitle);
 
   scaleFactor = maxColumnHeight / largestState;
-  $('#column_1').height(Math.floor(scaleFactor*states["OK"]));
+  $('#column_1').animate({height:Math.floor(scaleFactor*states["OK"])});
   $('#columnContainer_1 .header_A').html(states["OK"]);
-  $('#column_2').height(Math.floor(scaleFactor*states["WARNING"]));
+  $('#column_2').animate({height:Math.floor(scaleFactor*states["WARNING"])});
   $('#columnContainer_2 .header_A').html(states["WARNING"]);
-  $('#column_3').height(Math.floor(scaleFactor*states["CRITICAL"]));
+  $('#column_3').animate({height:Math.floor(scaleFactor*states["CRITICAL"])});
   $('#columnContainer_3 .header_A').html(states["CRITICAL"]);
-  $('#column_4').height(Math.floor(scaleFactor*states["UNKNOWN"]));
+  $('#column_4').animate({height:Math.floor(scaleFactor*states["UNKNOWN"])});
   $('#columnContainer_4 .header_A').html(states["UNKNOWN"]);
 }
 
@@ -172,6 +181,19 @@ function checkCSSParameter() {
   if (css) {
     $('<link rel="stylesheet" type="text/css" href="css/'+css+'.css">').appendTo("head")
   }
+}
+
+function checkGroupParameter() {
+  var group=$.getParams()["group"];
+  if (group) {
+    return group;
+  } else {
+    return "status";
+  }
+}
+
+function checkLabelParameter() {
+  label=$.getParams()["label"];
 }
 
 jQuery.fn.fitToParent = function()
@@ -228,8 +250,10 @@ function displayImages(data) {
 
 $(document).ready( function () {
   checkCSSParameter();
-  updateFromNagios();
-  setInterval( updateFromNagios, 10*1000 );
+  checkLabelParameter();
+  var group = checkGroupParameter();
+  updateFromNagios(group);
+  setInterval( updateFromNagios, 10*1000, group );
   updateGoogleCalendar();
   setInterval( updateGoogleCalendar,900*1000);
   updateSignificantEvent();
