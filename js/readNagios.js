@@ -19,7 +19,7 @@ function updateNagios() {
     var host = this["host_name"];
     var service = this["description"];
     var state = this["last_hard_state"];
-    var servicetag = (host+"-"+service).replace(/[ ]/gi,'');
+    var servicetag = (host+"-"+service).replace(/[ \.]/gi,'');
     var stateChanging = this["last_hard_state"] != this["current_state"]; 
     
     if (label == 'host') {
